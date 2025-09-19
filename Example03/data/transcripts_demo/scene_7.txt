@@ -1,0 +1,53 @@
+One way to think about the AI that you all know is think of it as language to language.
+You ask questions, the answer comes back, you ask a question, you can even write code,
+nowadays the models are multimodal. So for example, you can take a picture and say,
+tell me what's in this picture. Technically there are APIs which allow one firm to call an
+open AI or Gemini API or anthropic, et cetera, and do the classification of the picture.
+And so for these are all tactics that increase the intelligence of the underlying system.
+There are three things going on right now, this year, so less than the time from you gave,
+to really interesting. One is called infinite context windows.
+Infinite context windows means that you can keep feeding the answer back in as the question.
+So it allows you to do step-by-step planning, you know, how do I build a house?
+Well, the first is I have to find a contractor, I found a contractor, what I have to talk to them,
+then I have to have an architect, how do I find an architect, then I have to tell the
+architect what to do, and then design me the house, I'll give it to the architect, he can redesign it,
+you know, as a series of steps. The next one are called agents.
+And agents is generally overused term, and most people think that agents will essentially act as
+memory sources, so an agent can be understood as it's watching something and when it sees it,
+it takes an action. If it does that by knowing what to do based on what it's seen,
+the specs for how agents work are completely undefined in the industry, the dominant companies
+want to have their own agents, and they don't want the agents to interact because they want
+to control for all of this reasons. Many people think that there will be an agent store
+that she will download might like we see what apps but not this year, and the third one is
+text to code. I don't know about you all, but I've programmed and managed programmers for more
+than 40 years, and they never do what I want. So can you imagine if the computer you said
+write me a program to do this, and it actually writes the code, in our case, the program would be
+searched through all the literature, find out who is working on energy policy, who has a
+technological background, or role in which they have to be technological, liberate,
+literate, identify them, rank them, score them based on wherever our goal is, and then
+automatically send them an invitation, if they say yes, say congratulations, if they say no,
+why not, and call them, and with a synthetic voice tell them that they're idiots for it.
+Coming, that's the kind of program I would write, thank God, I'm not doing that. But
+you see how easy it would be to automate tasks. So that's I think the first step. The next step
+is not as clear. There are there's sort of huge contest, there's a huge set of contest going
+right now, which are at a scale that's unimaginable. You have the big three in the U.S. and
+Thropic, which is allied with Amazon, Gemini, obviously, from Google, OpenAI, Microsoft.
+And let's assume they all do really well. It looks they're doing really well. I can talk
+about what their problems are, but fundamentally they're doing well. You have Facebook, which
+shows an open source path for the 400 billion model as a lot of implications strategically,
+right, which we can discuss. All of these are vying for the best reasoning, the best answers,
+and then the best predictive analytics, the best image classifier, is the best multimodal.
+That technology then diffuses or the technical term is distilled into more specialized models.
+And I think that's the action you'll see in the next one to two years.
+You did not mention artificial general intelligence first for those of us who aren't necessarily
+totally up to speed on AI, what is it? And where are we? There are multiple definitions of
+AI, but the term isn't around for 15 years. The basic idea is, what is the point where you have
+the flexibility of a human in your intelligence system? So what we understand it today is that these
+are called narrow AI approaches, although they're not really not narrow, you basically they're
+initiated by a human. At what point is the question, can the computer generate its own objective
+function, its own goal, and how will that emerge? What I call the San Francisco School,
+because they're all in San Francisco, which is a separate set of issues, and they all talk to each
+other, and they've all convinced themselves that within two to three cranks of these systems,
+the crack is about 18 months, you get to AGI. And they define AGI as intelligence greater than
+the sum of human intelligence. I personally think that that's likely but not in three years,
+not in. What is the time frame? We don't know.
