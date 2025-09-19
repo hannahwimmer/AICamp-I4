@@ -19,8 +19,7 @@ Es gibt einige Möglichkeiten, dieses Repository zu verwenden - je nach Ihrem Ko
    - cd AICamp-I4
   
    Falls Sie sind *noch nicht* auskennen, es aber gerne versuchen würden, hier eine Variante, die VS Code als Editor verwendet:
-   - installieren Sie [VS Code](https://code.visualstudio.com/)
-   - installieren Sie [Python](https://www.python.org/downloads/) (klicken Sie "Add Python to PATH" während der Installation!)
+   - installieren Sie [VS Code](https://code.visualstudio.com/) und fügen Sie Python und Jupyter unter dem Tab `Extensions` als Add-Ons hinzu
    - erstellen Sie einen leeren Folder, z.B. direkt auf Ihrem Desktop
    - in VS Code, wählen Sie oben in der Leiste `File`>`Open Folder` und wählen Sie den erstellten leeren Folder aus
    - unter den Icons am linken Bildschirmrand in VS Code, wählen Sie den Tab `Source Control` aus (sieht aus wie drei Knoten eines Graphen)
