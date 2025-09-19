@@ -34,10 +34,9 @@ Es gibt einige Möglichkeiten, dieses Repository zu verwenden - je nach Ihrem Ko
    Wenn Sie sich keine Gedanken um Ihre Coding-Infrastruktur machen wollen, öffnen Sie das Repo am besten direkt in Google Colab:
    - gehen Sie zu [Google Colab](https://colab.google/)
    - klicken Sie auf `New Notebook`
-   - geben Sie `pwd` ("print working directory") in die Code-Zeile ein und klicken Sie auf das Play Symbol, um herauszufinden, 
-     in welchem Ordner Sie sich gerade befinden (sollte per Default `/content` sein)
-   - in einer neuen Code-Zeile, geben Sie `!git clone https://github.com/hannahwimmer/AICamp-I4.git` (der Link zu unserem Github Repo) ein
-     und klicken Sie auf das Play Symbol
-   Wenn Sie nun auf das Ordner Symbol am linken Bildschirmrand gehen und den `content`-Ordner öffnen, sollten Sie dort jetzt einen Folder
-   sehen, der "AICamp-I4" heißt.
-   - Rechtsklicken Sie auf den Ordner und wählen Sie 'Öffnen' - dann wird alles strukturiert angezeigt
+   - geben Sie 
+     `from google.colab import files
+      uploaded = files.upload()`
+     ein und klicken Sie auf das Play Symbol
+   - Sie können jetzt Files uploaden; downloaden Sie den Kurs-Folder als ZIP-File vom GitHub Repo (wie in 1. beschrieben), wählen Sie
+     dann die ZIP-Datei zum upload im Colab-Notebook aus. Dauert ein wenig - bitte Geduld haben!
