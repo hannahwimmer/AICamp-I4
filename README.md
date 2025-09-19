@@ -31,11 +31,7 @@ Es gibt einige Möglichkeiten, dieses Repository zu verwenden - je nach Ihrem Ko
 
 3. Notebooks in Google Colab öffnen
    Wenn Sie sich keine Gedanken um Ihre Coding-Infrastruktur machen wollen, öffnen Sie das Repo am besten direkt in Google Colab:
-   - gehen Sie zu [Google Colab](https://colab.google/)
-   - klicken Sie auf `New Notebook`
-   - geben Sie \
-     `from google.colab import files` \
-     `uploaded = files.upload()` \
-     ein und klicken Sie auf das Play Symbol
-   - Sie können jetzt Files uploaden; downloaden Sie den Kurs-Folder als ZIP-File vom GitHub Repo (wie in 1. beschrieben), wählen Sie
-     dann die ZIP-Datei zum upload im Colab-Notebook aus. Dauert ein wenig - bitte Geduld haben!
+   - uploaden Sie den entpackten ZIP-Folder des Projekts (siehe 1.) in Ihrem Google Drive
+   - im Drive, navigieren Sie zu dem Jupyter Notebook, das Sie sich gerade gerne ansehen würden; rechtsklicken Sie auf das File und wählen Sie
+     `Open with`>`Google Colaboratory`
+   - in den einzelnen Notebooks wird am Anfang Ihr Drive zusätzlich in Colab 'gemounted', damit Sie auf die Datein zugreifen können
