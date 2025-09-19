@@ -1,0 +1,21 @@
+[project]
+name = "Example03"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dagster>=1.11.6",
+    "dagster-webserver>=1.11.6",
+    "faster-whisper>=1.2.0",
+    "jupyter>=1.1.1",
+    "moviepy>=2.2.1",
+    "notebook>=7.4.5",
+    "numpy>=2.2.6",
+    "ollama>=0.5.3",
+    "opencv-python>=4.12.0.88",
+    "scenedetect>=0.6.6",
+    "scipy>=1.16.1",
+    "sounddevice>=0.5.2",
+    "streamlit>=1.48.1",
+]

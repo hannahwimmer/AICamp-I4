@@ -1,0 +1,1 @@
+`python -m ipykernel install --user --name=example03_env --display-name "Python (Example03)"`
