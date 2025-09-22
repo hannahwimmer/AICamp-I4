@@ -10,27 +10,28 @@ from ollama import chat, ChatResponse
 
 def detect_scenes(video_path: str = "data/example_video.mp4", threshold: float = 27.0) -> list[tuple[float, float]]:
     """
-    Detect scenes in a specified video. Params:
-    video_path: the path to the video
-    threshold: PyScene Detect compares histograms of consecutive frames
+    Erkennung von Szenen in einem angegebenen Video. Parameter:
+    video_path: Pfad zum Video
+    threshold: PySceneDetect vergleicht Histogramme aufeinanderfolgender Frames
     
-    If the difference between two frames exceeds the set threshold, a scene boundary
-    is assumed.
+    Wenn der Unterschied zwischen zwei Frames den festgelegten Schwellenwert überschreitet, 
+    wird eine Szenengrenze angenommen.
     """
 
-    # set up the scene manager of the scenedetect package
+    # Szene-Manager des scenedetect-Pakets einrichten
     scene_manager = SceneManager()
     scene_manager.add_detector(ContentDetector(threshold=threshold))
 
-    # open and let the manager analyze the video
+    # Video öffnen und vom Manager analysieren lassen
     video = open_video(video_path)
     scene_manager.detect_scenes(video)
 
-    # get a list of the scene timestamps (tuples of start and end time) in seconds
+    # Liste der Szenen-Zeitstempel (Tupel aus Start- und Endzeit) in Sekunden abrufen
     scene_list = scene_manager.get_scene_list()
     scene_times = [(start.get_seconds(), end.get_seconds()) for start, end in scene_list]
 
     return scene_times
+
 
 
 def cut_scenes(
@@ -38,25 +39,25 @@ def cut_scenes(
     video_path: str = "data/example_video.mp4",
     output_dir: str = "temp/scenes") -> str:
     """
-    Cut a given video into segments according to defined scene boundaries. Params:
-    video_path: path to the video
-    scenes: list of (start_time, end_time) tuples
-    output_dir: path for saving the video segments
+    Schneidet ein gegebenes Video in Segmente entsprechend definierter Szenengrenzen. Parameter:
+    video_path: Pfad zum Video
+    scenes: Liste von (start_time, end_time)-Tupeln
+    output_dir: Pfad zum Speichern der Videosegmente
     """
-    # if the output directory doesn't exist, create it
+    # Falls das Ausgabeverzeichnis nicht existiert, wird es erstellt
     os.makedirs(output_dir, exist_ok=True)
 
-    # load the full video into a MoviePy VideoFileClip object
+    # Das komplette Video als MoviePy VideoFileClip-Objekt laden
     clip = VideoFileClip(video_path)
 
     for idx, (start_time, end_time) in enumerate(scene_list):
 
-        # extract relevant portion of the video
+        # Relevanten Teil des Videos extrahieren
         subclip = clip.subclipped(start_time, end_time)
 
-        # write to declarated output path. note:
-        # H.264: video compression standard
-        # aac: advanced audio coding, lossy audio codec
+        # In den angegebenen Ausgabeordner schreiben. Hinweis:
+        # H.264: Videokompressionsstandard
+        # AAC: Advanced Audio Coding, verlustbehafteter Audiocodec
         out_path = os.path.join(output_dir, f"scene_{idx+1}.mp4")
         subclip.write_videofile(out_path, codec="libx264", audio_codec="aac")   
 
@@ -69,21 +70,21 @@ def transcribe_scenes(
     scenes_dir: str = "temp/scenes", 
     output_dir: str = "temp/transcripts"):
     """
-    Transcribe all scene video files in scenes_dir using Whisper.
-    scenes_dir: directory of the scene videos
-    model_name: name of the whisper model used ('tiny', 'base', ...)
+    Transkribiere alle Szenenvideodateien im Verzeichnis scenes_dir mit Whisper.
+    scenes_dir: Verzeichnis der Szenenvideos
+    model_name: Name des verwendeten Whisper-Modells ('tiny', 'base', ...)
     """
 
     model = WhisperModel("tiny", device="cpu")
     os.makedirs(output_dir, exist_ok=True)
 
-    # look through all the files in scenes_dir
+    # Alle Dateien im Verzeichnis scenes_dir durchlaufen
     for file_name in sorted(os.listdir(scenes_dir)):
 
-        # check if the specific file is a video file
+        # Prüfen, ob es sich bei der Datei um eine Videodatei handelt
         if file_name.lower().endswith((".mp4", ".mov", ".mkv", ".avi")):
 
-            # fetch the specific scene and transcribe
+            # Die jeweilige Szene laden und transkribieren
             file_path = os.path.join(scenes_dir, file_name)
             segments, _ = model.transcribe(file_path)
             transcript = "\n".join([segment.text.strip() for segment in segments])
@@ -101,17 +102,17 @@ def summarize_transcript(
 
     os.makedirs(output_dir, exist_ok=True)
 
-    # define a prompt for the LLM
+    # Definiere eine Eingabeaufforderung (Prompt) für das LLM
     prompt = f"""Summarize the following text. Do not verify facts, and do not add
         commentary. Only output a concise summary in five sentences maximum. """
     
-    # look through all the files in transcripts_dir
+    # Alle Dateien im Verzeichnis transcripts_dir durchlaufen
     for file_name in sorted(os.listdir(transcripts_dir)):
 
-        # check if the specific file is a .txt file
+        # Prüfen, ob es sich bei der Datei um eine .txt-Datei handelt
         if file_name.lower().endswith(".txt"):
 
-            # fetch the specific transcript and extract the text
+            # Das jeweilige Transkript laden und den Text extrahieren
             file_path = os.path.join(transcripts_dir, file_name)
             with open(file_path, "r", encoding="utf-8") as f:
                 transcript = f.read()

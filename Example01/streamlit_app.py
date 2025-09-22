@@ -5,7 +5,7 @@ import os
 import pandas as pd
 
 
-# Set page config ONCE, at top-level
+# Seitenkonfiguration einstellen
 st.set_page_config(page_title="PDF Information Extraction", layout="wide")
 
 

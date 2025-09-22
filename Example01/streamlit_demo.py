@@ -1,12 +1,13 @@
 import streamlit as st
 
-st.title("Your super cool web-app!")
-st.set_page_config(page_title="Your app", layout="wide")
+st.title("Unsere großartige Web-App!")
+st.set_page_config(page_title="Unsere App", layout="wide")
 
-st.header("Section 1")
+st.header("Abschnitt 1")
 
-st.text("hello, this is regular text...")
+st.text("Grüß euch! Hier ist gewöhnlicher Text...")
 
-"This is regular text as well..."
+"Hier kommt noch mehr gewöhnlicher Text..."
 
-st.markdown("This is also regular text, but with :red[markdown], **see**?")
+st.markdown("""Das ist auch regulärer Text, aber in einer :red[Markdown Umgebung]. So 
+    können wir den Text auch :orange[nach Belieben] :blue[formatieren], **sehen Sie**?""")

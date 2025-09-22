@@ -8,10 +8,10 @@ defs = Definitions(
 )
 
 
-""" # for scheduling .... 
+""" # für die Planung .... 
 five_minute_schedule = ScheduleDefinition(
     job=pipeline.video_processing_pipeline,
-    cron_schedule="*/5 * * * *",  # every 5 minutes
+    cron_schedule="*/5 * * * *",  # alle 5 Minuten
     name="video_processing_every_5_minutes",
 )
 
@@ -19,16 +19,17 @@ five_minute_schedule = ScheduleDefinition(
 defs = Definitions(
     assets=all_assets,
     jobs=[pipeline.video_processing_pipeline],
-    schedules=[five_minute_schedule],  # <-- add your schedule here
+    schedules=[five_minute_schedule],  # <-- hier den Zeitplan hinzufügen
 )
 
 
-# ad cron scheme:
-┌───────────── minute (0 - 59)
-│ ┌───────────── hour (0 - 23)
-│ │ ┌───────────── day of month (1 - 31)
-│ │ │ ┌───────────── month (1 - 12)
-│ │ │ │ ┌───────────── day of week (0 - 6) (Sunday=0)
+# Cron-Schema:
+┌───────────── Minute (0 - 59)
+│ ┌───────────── Stunde (0 - 23)
+│ │ ┌───────────── Tag des Monats (1 - 31)
+│ │ │ ┌───────────── Monat (1 - 12)
+│ │ │ │ ┌───────────── Wochentag (0 - 6) (Sonntag=0)
 │ │ │ │ │
 * * * * *
 """
+

@@ -22,22 +22,22 @@ def fetch_model():
 
 
 """
-generally: dagster assesses the causal sequence of assets implicitly by forcing us to
-name function inputs after other assets.
+Kommentar: Dagster bewertet die kausale Reihenfolge der Assets implizit, indem es uns
+dazu zwingt, die Funktionsparameter nach anderen Assets zu benennen.
 ---------------------
-Example: get_object_trajectories(load_video, fetch_model). If we change how the inputs
-    are called here, dagster will throw an error because it doesn't know where those
-    inputs should come from.
+Beispiel: get_object_trajectories(load_video, fetch_model). Wenn wir ändern, wie die
+Inputs hier genannt werden, wirft Dagster einen Fehler, weil es nicht weiß, woher diese
+Inputs kommen sollen.
 ---------------------
-if the asset doesn't take an input but STILL depends on another asset, you can declare
-the connection EXPLICITLY via the "deps" property of the asset decorator.
---> I put this as a comment in the following as it is not necessary here (our functions
-    take inputs, so we have to declare those after assets anyway and dagster will grasp
-    the causal order)
+Wenn ein Asset keinen Input annimmt, aber DENNOCH von einem anderen Asset abhängt, kann
+die Verbindung EXPLIZIT über die "deps"-Eigenschaft des Asset-Decorators angegeben werden.
+--> Ich habe dies im Folgenden als Kommentar hinzugefügt, da es hier nicht notwendig ist
+    (unsere Funktionen nehmen Eingaben, also müssen wir diese sowieso nach den Assets
+    deklarieren und Dagster erkennt die kausale Reihenfolge automatisch)
 """
 
 @asset(
-    # deps=[load_video, fetch_model],   # not necessary to declare again explicitly here
+    # deps=[load_video, fetch_model],   # muss hier nicht unbedingt explizit deklariert werden (siehe Kommentar)
     description="Tracks objects in the video and returns their trajectories",
     group_name="transformation"
 )
@@ -48,7 +48,7 @@ def get_object_trajectories(load_video, fetch_model) -> pd.DataFrame:
 
 
 @asset(
-    # deps=[get_object_trajectories],   # not necessary to declare again explicitly here
+    # deps=[get_object_trajectories],   # muss hier nicht unbedingt explizit deklariert werden (siehe Kommentar)
     description="Saves trajectories to CSV in results folder",
     group_name="loading"
 )
