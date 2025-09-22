@@ -1,6 +1,7 @@
 # AICamp Coding Examples Setup
 
-1. Create a uv virtual environment for the project:
+1. Eine virtuelle `uv`-Umgebung für das Projekt herstellen (aus dem zur Verfügung
+   gestellten `.toml`-file):
    `uv sync`
-2. for running Dagster:
-   `dagster dev -f <main_file_name>.py`
+2. Um Dagster zu starten:
+   `dagster dev -f pipeline.py`
